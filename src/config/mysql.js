@@ -1,8 +1,14 @@
-const Sequelize = require("sequelize");
+onst Sequelize = require("sequelize");
+const databaseConfig = require("./databaseConfig");
 
-const sequelize = new Sequelize("test", "admin", "Prerna123", {
-  host: "mysqldatabase.c7jgnwjx5ak9.ap-south-1.rds.amazonaws.com",
-  dialect: "mysql",
-});
+const sequelize = new Sequelize(
+  databaseConfig.database,
+  databaseConfig.username,
+  databaseConfig.password,
+  {
+    host: databaseConfig.hostname,
+    dialect: "mysql",
+  }
+);
 
 module.exports = sequelize;
